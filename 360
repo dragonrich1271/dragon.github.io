@@ -22,7 +22,6 @@
     .product-image {
       width: 100%;
       height: auto;
-      transition: transform 1s ease;
     }
     .button {
       background-color: #4CAF50;
@@ -49,11 +48,15 @@
   <button class="button" id="rotateButton">Rotate Product</button>
 
   <script>
-    let angle = 0;
+    // Track which image is currently displayed
+    let currentImage = 1;
+    const totalImages = 5; // Total number of product images (e.g., product1.jpg to product5.jpg)
 
+    // When the "Rotate Product" button is clicked, change the image
     document.getElementById("rotateButton").addEventListener("click", function() {
-      angle += 90;
-      document.getElementById("productImage").style.transform = "rotate(" + angle + "deg)";
+      // Cycle through the images (e.g., product1.jpg, product2.jpg, etc.)
+      currentImage = currentImage % totalImages + 1; // This ensures we loop through the images
+      document.getElementById("productImage").src = "product" + currentImage + ".jpg"; // Change image source
     });
   </script>
 </body>
