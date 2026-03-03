@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>360° Product Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 { color: #4CAF50; }
+    .product-container {
+      margin: 30px auto;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .product-image {
+      width: 100%;
+      height: auto;
+      transition: transform 1s ease;
+    }
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 1em;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>360° Product Viewer</h1>
+  <p>Click to rotate the product</p>
+
+  <div class="product-container">
+    <img id="productImage" class="product-image" src="product1.jpg" alt="Product" />
+  </div>
+
+  <button class="button" id="rotateButton">Rotate Product</button>
+
+  <script>
+    let angle = 0;
+
+    document.getElementById("rotateButton").addEventListener("click", function() {
+      angle += 90;
+      document.getElementById("productImage").style.transform = "rotate(" + angle + "deg)";
+    });
+  </script>
+</body>
+</html>
